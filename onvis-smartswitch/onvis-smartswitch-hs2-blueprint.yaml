@@ -1,0 +1,286 @@
+blueprint:
+  name: Onvis Smartswitch HS2
+  description: Easily setup your Onvis HS2 5-Button Smartswitch
+  domain: automation
+  input:
+    onvis_smartswitch:
+      name: Onvis HS2 Switch
+      description: Select your Onvis HS2 Switch you want to configure actions for.
+      selector:
+        device:
+          filter:
+            model: HS2
+    action1_sp:
+      name: Action SP Button 1
+      default:
+      description: Action Type for single pressing Button 1
+      selector:
+        action:
+    action1_dp:
+      name: Action DP Button 1
+      default:
+      description: Action Type for double pressing Button 1
+      selector:
+        action:
+    action1_lp:
+      name: Action LP Button 1
+      default: 
+      description: Action Type for long pressing Button 1
+      selector:
+        action: 
+    action2_sp:
+      name: Action SP Button 2
+      default: 
+      description: Action Type for single pressing Button 2
+      selector:
+        action:
+    action2_dp:
+      name: Action DP Button 2
+      default: 
+      description: Action Type for double pressing Button 2
+      selector:
+        action:
+    action2_lp:
+      name: Action LP Button 2
+      default: 
+      description: Action Type for long pressing Button 2
+      selector:
+        action: 
+    action3_sp:
+      name: Action SP Button 3
+      default: 
+      description: Action Type for single pressing Button 3
+      selector:
+        action:
+    action3_dp:
+      name: Action DP Button 3
+      default: 
+      description: Action Type for double pressing Button 3
+      selector:
+        action:
+    action3_lp:
+      name: Action LP Button 3
+      default: 
+      description: Action Type for long pressing Button 3
+      selector:
+        action: 
+    action4_sp:
+      name: Action SP Button 4
+      default: 
+      description: Action Type for single pressing Button 4
+      selector:
+        action:
+    action4_dp:
+      name: Action DP Button 4
+      default: 
+      description: Action Type for double pressing Button 4
+      selector:
+        action:
+    action4_lp:
+      name: Action LP Button 4
+      default: 
+      description: Action Type for long pressing Button 4
+      selector:
+        action: 
+    action5_sp:
+      name: Action SP Button 5
+      default: 
+      description: Action Type for single pressing Button 5
+      selector:
+        action:
+    action5_dp:
+      name: Action DP Button 5
+      default: 
+      description: Action Type for double pressing Button 5
+      selector:
+        action:
+    action5_lp:
+      name: Action LP Button 5
+      default: 
+      description: Action Type for long pressing Button 5
+      selector:
+        action:         
+
+trigger:
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button1
+    subtype: single_press
+    id: SP B1
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button1
+    subtype: double_press
+    id: DP B1
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button1
+    subtype: long_press
+    id: LP B1
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button2
+    subtype: single_press
+    id: SP B2
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button2
+    subtype: double_press
+    id: DP B2
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button2
+    subtype: long_press
+    id: LP B2
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button3
+    subtype: single_press
+    id: SP B3
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button3
+    subtype: double_press
+    id: DP B3
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button3
+    subtype: long_press
+    id: LP B3
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button4
+    subtype: single_press
+    id: SP B4
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button4
+    subtype: double_press
+    id: DP B4
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button4
+    subtype: long_press
+    id: LP B4
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button5
+    subtype: single_press
+    id: SP B5
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button1
+    subtype: double_press
+    id: DP B5
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button1
+    subtype: long_press
+    id: LP B5
+
+action:
+  - if:
+      - condition: trigger
+        id:
+          - SP B1
+    then:
+      !input action1_sp
+  - if:
+      - condition: trigger
+        id:
+          - DP B1
+    then:
+      !input action1_dp
+  - if:
+      - condition: trigger
+        id:
+          - LP B1
+    then:
+      !input action1_lp
+  - if:
+      - condition: trigger
+        id:
+          - SP B2
+    then:
+      !input action2_sp
+  - if:
+      - condition: trigger
+        id:
+          - DP B2
+    then:
+      !input action2_dp
+  - if:
+      - condition: trigger
+        id:
+          - LP B2
+    then:
+      !input action2_lp
+  - if:
+      - condition: trigger
+        id:
+          - SP B3
+    then:
+      !input action3_sp
+  - if:
+      - condition: trigger
+        id:
+          - DP B3
+    then:
+      !input action3_dp
+  - if:
+      - condition: trigger
+        id:
+          - LP B3
+    then:
+      !input action3_lp
+  - if:
+      - condition: trigger
+        id:
+          - SP B4
+    then:
+      !input action4_sp
+  - if:
+      - condition: trigger
+        id:
+          - DP B4
+    then:
+      !input action4_dp
+  - if:
+      - condition: trigger
+        id:
+          - LP B4
+    then:
+      !input action4_lp
+  - if:
+      - condition: trigger
+        id:
+          - SP B5
+    then:
+      !input action5_sp
+  - if:
+      - condition: trigger
+        id:
+          - DP B5
+    then:
+      !input action5_dp
+  - if:
+      - condition: trigger
+        id:
+          - LP B5
+    then:
+      !input action5_lp
