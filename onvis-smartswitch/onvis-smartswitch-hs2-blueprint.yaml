@@ -183,13 +183,13 @@ trigger:
   - platform: device
     device_id: !input onvis_smartswitch
     domain: homekit_controller
-    type: button1
+    type: button5
     subtype: double_press
     id: DP B5
   - platform: device
     device_id: !input onvis_smartswitch
     domain: homekit_controller
-    type: button1
+    type: button5
     subtype: long_press
     id: LP B5
 
