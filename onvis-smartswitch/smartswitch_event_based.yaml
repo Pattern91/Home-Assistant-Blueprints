@@ -18,13 +18,15 @@ blueprint:
         action:
 
 trigger:
-  - platform: device
-    device_id: !input onvis_smartswitch
-    domain: homekit_controller
-    type: button1
-    subtype: single_press
-    id: SP B1
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: event.onvis_hs2_cade8a_stateless_programmable_switch_2
+      attributes:
+        event_types:
+          - single_press
 
+    
 action:
   - if:
       - condition: trigger
