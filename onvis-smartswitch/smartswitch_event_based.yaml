@@ -1,0 +1,34 @@
+blueprint:
+  name: Onvis Smartswitch HS2
+  description: Easily setup your Onvis HS2 5-Button Smartswitch
+  domain: automation
+  input:
+    onvis_smartswitch:
+      name: Onvis HS2 Switch
+      description: Select your Onvis HS2 Switch you want to configure actions for.
+      selector:
+        device:
+          filter:
+            model: HS2
+    action1_sp:
+      name: Action SP Button 1
+      default:
+      description: Action Type for single pressing Button 1
+      selector:
+        action:
+
+trigger:
+  - platform: device
+    device_id: !input onvis_smartswitch
+    domain: homekit_controller
+    type: button1
+    subtype: single_press
+    id: SP B1
+
+action:
+  - if:
+      - condition: trigger
+        id:
+          - SP B1
+    then:
+      !input action1_sp
