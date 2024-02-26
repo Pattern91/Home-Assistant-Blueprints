@@ -22,7 +22,7 @@ trigger:
   id: B1
   event_type: state_changed
   event_data:
-    entity_id: device_entities(!input onvis_smartswitch)[0]
+    entity_id: device_entities(!input onvis_smartswitch[0])
 
 action:
 - if:
