@@ -22,7 +22,7 @@ trigger:
   id: B1
   event_type: state_changed
   event_data:
-    entity_id: event.onvis_hs2_cade8a_stateless_programmable_switch_1
+    entity_id: device_entities(!input onvis_smartswitch)[0]
 
 action:
 - if:
