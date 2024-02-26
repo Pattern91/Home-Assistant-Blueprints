@@ -1,5 +1,5 @@
 blueprint:
-  name: Onvis Smartswitch HS2
+  name: Onvis Smartswitch HS2 (event based)
   description: Easily setup your Onvis HS2 5-Button Smartswitch
   domain: automation
   input:
