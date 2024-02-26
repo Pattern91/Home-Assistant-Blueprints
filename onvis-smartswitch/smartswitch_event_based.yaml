@@ -18,19 +18,15 @@ blueprint:
         action:
 
 trigger:
-  - platform: event
-    event_type: state_changed
-    event_data:
-      entity_id: event.onvis_hs2_cade8a_stateless_programmable_switch_2
-      attributes:
-        event_types:
-          - single_press
+- platform: event
+  id: B1
+  event_type: state_changed
+  event_data:
+    entity_id: event.onvis_hs2_cade8a_stateless_programmable_switch_1
 
-    
 action:
-  - if:
-      - condition: trigger
-        id:
-          - SP B1
-    then:
-      !input action1_sp
+- if:
+  - condition: template
+    value_template: >
+        {{ trigger.event.data.new_state.attributes.event_type == 'single_press' }}
+  then: !input action1_sp
